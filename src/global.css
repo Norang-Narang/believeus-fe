@@ -1,0 +1,83 @@
+:root {
+  /*headings*/
+  --font-h-b-32: 700 3.2rem / 4.8rem;
+  --font-h-b-28: 700 2.8rem / 4.2rem;
+  --font-h-b-24: 700 2.4rem / 3.6rem;
+  --font-h-b-20: 700 2rem / 3rem;
+  --font-h-b-18: 700 1.8rem / 2.6rem;
+  --font-h-b-16: 700 1.6rem / 2.3rem;
+
+  /*titles*/
+  --font-t-sb-24: 600 2.4rem / 3.6rem;
+  --font-t-sb-20: 600 2rem / 3rem;
+  --font-t-sb-18: 600 1.8rem / 2.6rem;
+  --font-t-sb-16: 600 1.6rem / 2.3rem;
+  --font-t-sb-14: 600 1.4rem / 2rem;
+
+  /*body*/
+  --font-b-r-24: 400 2.4rem / 3.6rem;
+  --font-b-r-20: 400 2rem / 3rem;
+  --font-b-r-18: 400 1.8rem / 2.6rem;
+  --font-b-r-16: 400 1.6rem / 2.3rem;
+  --font-b-r-14: 400 1.4rem / 2rem;
+
+  /*caption & label*/
+  --font-c-sb-12: 1.2rem / 1.2rem;
+  --font-l-sb-12: 1.2rem / 1.2rem;
+
+  /*colors*/
+  --color-primary-100: #dce3ff;
+  --color-primary-200: #b9c7ff;
+  --color-primary-300: #96abff;
+  --color-primary-400: #738fff;
+  --color-primary-500: #5073ff;
+  --color-primary-600: #405ccc;
+  --color-primary-700: #304599;
+  --color-primary-800: #202e66;
+  --color-primary-900: #101733;
+
+  --color-secondary-100: #d8faed;
+  --color-secondary-200: #b1f5da;
+  --color-secondary-300: #8bf0c8;
+  --color-secondary-400: #64ebb5;
+  --color-secondary-500: #3de6a3;
+  --color-secondary-600: #31b882;
+  --color-secondary-700: #258a62;
+  --color-secondary-800: #185c41;
+  --color-secondary-900: #0c2e21;
+
+  --color-grayscale-100: #e2e2e3;
+  --color-grayscale-200: #c5c5c7;
+  --color-grayscale-300: #a8a8ab;
+  --color-grayscale-400: #8b8b8f;
+  --color-grayscale-500: #6e6e73;
+  --color-grayscale-600: #58585c;
+  --color-grayscale-700: #424245;
+  --color-grayscale-800: #2c2c2e;
+  --color-grayscale-900: #242427;
+
+  --color-error-container: #ffedf0;
+  --color-error: #ff5070;
+
+  /*layout spacing*/
+  --spacing-48: 4.8rem;
+  --spacing-38: 3.8rem;
+  --spacing-24: 2.4rem;
+  --spacing-16: 1.6rem;
+  --spacing-10: 1rem;
+  --spacing-8: 0.8rem;
+}
+
+html,
+body {
+  font-size: 10px !important;
+  background-color: #f9f9fb;
+}
+
+/*reset css*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
