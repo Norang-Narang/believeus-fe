@@ -4,6 +4,7 @@ import styles from "./Layout.module.css";
 import BottomNav from "../common/BottomNav";
 import { NAV_ITEMS } from "../../constants/menu";
 import { HIDDEN_NAV_PATH } from "../../constants/path";
+import TopNav from "../common/TopNav";
 
 const Layout = () => {
   const location = useLocation();
@@ -31,7 +32,7 @@ const Layout = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.statusBar}>topNav</div>
+        <TopNav variant="text-with-icon" label="마이페이지" />
       </header>
       <main className={styles.main}>
         <Outlet />
