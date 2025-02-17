@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CheckboxTypes } from "./Checkbox.type";
 import styles from "./Checkbox.module.css";
 import { IoCheckmarkSharp } from "react-icons/io5";
+import Typography from "../Typography";
 
 export default function Checkbox({
   label,
@@ -34,7 +35,7 @@ export default function Checkbox({
         <div className={classNames}>
           {isChecked && <IoCheckmarkSharp className={styles.icon} size={24} />}
         </div>
-        {label && <span className={styles.text}>{label}</span>}
+        {label && <Typography variant="c-sb-12">{label}</Typography>}
       </label>
     </div>
   );

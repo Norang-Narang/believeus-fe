@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { DropdownTypes } from "./Dropdown.type";
 import styles from "./Dropdown.module.css";
 import { IoChevronDown } from "react-icons/io5";
+import Typography from "../Typography";
 
 export default function Dropdown({
   placeholder = "선택해주세요",
@@ -22,6 +23,7 @@ export default function Dropdown({
     styles.base,
     fullWidth && styles.fullWidth,
     isOpen && styles.open,
+    selectedOption && styles.hasValue,
     disabled && styles.disabled,
     error && styles.error,
   ]
@@ -52,14 +54,35 @@ export default function Dropdown({
     (opt) => opt.value === selectedOption
   )?.label;
 
+  const renderContent = () => {
+    return (
+      <Typography
+        variant="b-r-16"
+        className={`${styles.selected} ${
+          !selectedLabel ? styles.placeholder : ""
+        }`}>
+        {selectedLabel || placeholder}
+      </Typography>
+    );
+  };
+
   return (
     <div className={styles.container} ref={dropdownRef}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <Typography variant="l-sb-12" className={styles.label}>
+          {label}
+        </Typography>
+      )}
+      {error && (
+        <Typography variant="c-sb-12" className={styles.error}>
+          {error}
+        </Typography>
+      )}
       <div
         className={classNames}
         onClick={() => !disabled && setIsOpen(!isOpen)}
         {...rest}>
-        <div className={styles.selected}>{selectedLabel || placeholder}</div>
+        {renderContent()}
         <IoChevronDown
           className={`${styles.arrow} ${isOpen ? styles.open : ""}`}
           size={20}
@@ -73,13 +96,12 @@ export default function Dropdown({
                   option.value === selectedOption ? styles.selected : ""
                 } ${option.disabled ? styles.disabled : ""}`}
                 onClick={() => handleSelect(option)}>
-                {option.label}
+                <Typography variant="b-r-16">{option.label}</Typography>
               </li>
             ))}
           </ul>
         )}
       </div>
-      {error && <span className={styles.errorText}>{error}</span>}
     </div>
   );
 }

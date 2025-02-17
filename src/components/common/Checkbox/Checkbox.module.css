@@ -33,11 +33,6 @@
   border-color: var(--color-primary-500);
 }
 
-.text {
-  font: var(--font-l-r-12);
-  color: var(--color-grayscale-900);
-}
-
 .icon {
   color: white;
 }
