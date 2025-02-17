@@ -138,16 +138,9 @@
 }
 
 .icon-only {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-only.primary-circle,
-.icon-only.grayscale-circle {
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  padding: var(--spacing-8);
 }
 
 /* Sizes */
@@ -156,7 +149,7 @@
   padding: var(--spacing-8) var(--spacing-16);
 }
 
-.large {
+.large:not(.icon-only) {
   width: 100%;
 }
 

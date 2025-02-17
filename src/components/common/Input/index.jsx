@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputTypes } from "./Input.type";
 import styles from "./Input.module.css";
 
@@ -12,9 +12,23 @@ export default function Input({
   error,
   ...rest
 }) {
-  const classNames = [styles.base, styles[variant], styles[props], styles[size]]
+  const [isFocused, setIsFocused] = useState(false);
+  const classNames = [
+    styles.base,
+    styles[variant],
+    isFocused ? styles.Focused : styles[props],
+    styles[size],
+  ]
     .filter(Boolean)
     .join(" ");
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -22,12 +36,20 @@ export default function Input({
         <label className={styles.label}>{label}</label>
       )}
       {size === "Xlarge" ? (
-        <textarea className={classNames} placeholder={placeholder} {...rest} />
+        <textarea
+          className={classNames}
+          placeholder={placeholder}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          {...rest}
+        />
       ) : (
         <input
           type={type}
           className={classNames}
           placeholder={placeholder}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           {...rest}
         />
       )}
