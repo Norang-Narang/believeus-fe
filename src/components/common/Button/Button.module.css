@@ -1,0 +1,173 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font: var(--font-t-sb-20);
+}
+
+/* Primary styles */
+.primary-contained {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.primary-contained:hover:not(:disabled) {
+  background: var(--color-primary-600);
+}
+
+.primary-outlined {
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
+  background: transparent;
+}
+
+.primary-outlined:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+.primary-texted {
+  color: var(--color-primary-500);
+  background: transparent;
+}
+
+.primary-texted:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+.primary-circle {
+  border-color: var(--color-primary-500);
+  background: transparent;
+  color: var(--color-primary-500);
+  border-radius: 2.4rem;
+}
+
+.primary-circle:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+/* Secondary styles */
+.secondary-contained {
+  background: var(--color-secondary-500);
+  color: white;
+}
+
+.secondary-contained:hover:not(:disabled) {
+  background: var(--color-secondary-600);
+}
+
+.secondary-outlined {
+  border-color: var(--color-secondary-500);
+  color: var(--color-secondary-500);
+  background: transparent;
+}
+
+.secondary-outlined:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+.secondary-texted {
+  color: var(--color-secondary-500);
+  background: transparent;
+}
+
+.secondary-texted:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+.secondary-circle {
+  background: var(--color-secondary-500);
+  color: var(--color-secondary-500);
+  border-radius: 50%;
+}
+
+.secondary-circle:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+/* Grayscale styles */
+.grayscale-contained {
+  background: var(--color-grayscale-500);
+  color: white;
+}
+
+.grayscale-contained:hover:not(:disabled) {
+  background: var(--color-grayscale-600);
+}
+
+.grayscale-outlined {
+  border-color: var(--color-grayscale-500);
+  color: var(--color-grayscale-500);
+  background: transparent;
+}
+
+.grayscale-outlined:hover:not(:disabled) {
+  background: var(--color-grayscale-100);
+}
+
+.grayscale-texted {
+  color: var(--color-grayscale-500);
+  background: transparent;
+}
+
+.grayscale-texted:hover:not(:disabled) {
+  background: var(--color-grayscale-100);
+}
+
+.grayscale-circle {
+  background: var(--color-grayscale-500);
+  color: var(--color-grayscale-500);
+  border-radius: 50%;
+}
+
+.grayscale-circle:hover:not(:disabled) {
+  background: var(--color-grayscale-600);
+}
+
+/* Types */
+.text {
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+.with-icon {
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+.icon-only {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-only.primary-circle,
+.icon-only.grayscale-circle {
+  border-radius: 8px;
+}
+
+/* Sizes */
+.small {
+  width: 84px;
+  padding: var(--spacing-8) var(--spacing-16);
+}
+
+.large {
+  width: 100%;
+}
+
+/* States */
+.disabled {
+  background: var(--color-grayscale-200) !important;
+  color: white !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+}
+
+.label {
+  white-space: nowrap;
+}
