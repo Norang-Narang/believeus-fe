@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import styles from "./Layout.module.css";
-import Navbar from "../common/Navbar";
+import BottomNav from "../common/BottomNav";
 import { NAV_ITEMS } from "../../constants/menu";
 import { HIDDEN_NAV_PATH } from "../../constants/path";
 
@@ -38,7 +38,7 @@ const Layout = () => {
       </main>
       {showNav && (
         <footer className={styles.footer}>
-          <Navbar
+          <BottomNav
             items={NAV_ITEMS}
             activeItem={activeItem}
             onItemClick={handleNavItemClick}
