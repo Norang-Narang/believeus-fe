@@ -3,14 +3,17 @@ import { Outlet, useLocation } from "react-router-dom";
 import styles from "./Layout.module.css";
 import Navbar from "../common/Navbar";
 import { NAV_ITEMS } from "../../constants/menu";
+import { HIDDEN_NAV_PATH } from "../../constants/path";
 
 const Layout = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState(() => {
     const currentPath = location.pathname;
     const currentItem = NAV_ITEMS.find((item) => item.path === currentPath);
-    return currentItem?.label || "홈";
+    return currentItem?.path || "/home";
   });
+
+  const showNav = !HIDDEN_NAV_PATH.includes(location.pathname);
 
   useEffect(() => {
     const currentItem = NAV_ITEMS.find(
@@ -33,13 +36,15 @@ const Layout = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <footer className={styles.footer}>
-        <Navbar
-          items={NAV_ITEMS}
-          activeItem={activeItem}
-          onItemClick={handleNavItemClick}
-        />
-      </footer>
+      {showNav && (
+        <footer className={styles.footer}>
+          <Navbar
+            items={NAV_ITEMS}
+            activeItem={activeItem}
+            onItemClick={handleNavItemClick}
+          />
+        </footer>
+      )}
     </div>
   );
 };
