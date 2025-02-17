@@ -35,7 +35,6 @@
 
 .Focused {
   border-color: var(--color-primary-500);
-  outline: none;
 }
 
 .Filled {
