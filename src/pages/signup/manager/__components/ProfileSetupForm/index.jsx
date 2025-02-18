@@ -6,8 +6,10 @@ import Button from "../../../../../components/common/Button";
 import styles from "../../SignupManager.module.css";
 import Dropdown from "../../../../../components/common/Dropdown";
 import ImageUpload from "../../../../../components/common/ImageUpload";
+import StepProgress from "../../../../../components/common/StepProgress";
+import { STEPS } from "../..";
 
-const ProfileSetupForm = ({ onNext, data = {} }) => {
+const ProfileSetupForm = ({ onNext, data = {}, currentStep }) => {
   const [profileImage, setProfileImage] = useState(null);
 
   const handleImageSelect = (imageUrl) => {
@@ -33,6 +35,10 @@ const ProfileSetupForm = ({ onNext, data = {} }) => {
         <Typography variant="t-sb-24">MONICX</Typography>
       </div>
       <div className={styles.buttonWrapper}>
+        <StepProgress
+          totalSteps={Object.keys(STEPS).length}
+          currentStep={currentStep}
+        />
         <Button size="large" variant="primary" fullWidth onClick={onNext}>
           다음
         </Button>

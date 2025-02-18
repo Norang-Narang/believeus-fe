@@ -5,8 +5,9 @@ import CertificationForm from "./__components/CertificationForm";
 import OptionalInfoForm from "./__components/OptionalInfoForm";
 import ProfileSetupForm from "./__components/ProfileSetupForm";
 import SignupComplete from "./__components/SignupComplete";
+import StepProgress from "../../../components/common/StepProgress";
 
-const STEPS = {
+export const STEPS = {
   REQUIRED_INFO: 0,
   CERTIFICATION: 1,
   OPTIONAL_INFO: 2,
@@ -26,15 +27,39 @@ const SignupManager = () => {
   const renderStep = () => {
     switch (currentStep) {
       case STEPS.REQUIRED_INFO:
-        return <RequiredInfoForm onNext={handleNext} data={formData} />;
+        return (
+          <RequiredInfoForm
+            onNext={handleNext}
+            data={formData}
+            currentStep={currentStep}
+          />
+        );
       case STEPS.CERTIFICATION:
-        return <CertificationForm onNext={handleNext} data={formData} />;
+        return (
+          <CertificationForm
+            onNext={handleNext}
+            data={formData}
+            currentStep={currentStep}
+          />
+        );
       case STEPS.OPTIONAL_INFO:
-        return <OptionalInfoForm onNext={handleNext} data={formData} />;
+        return (
+          <OptionalInfoForm
+            onNext={handleNext}
+            data={formData}
+            currentStep={currentStep}
+          />
+        );
       case STEPS.PROFILE_SETUP:
-        return <ProfileSetupForm onNext={handleNext} data={formData} />;
+        return (
+          <ProfileSetupForm
+            onNext={handleNext}
+            data={formData}
+            currentStep={currentStep}
+          />
+        );
       case STEPS.COMPLETE:
-        return <SignupComplete />;
+        return <SignupComplete currentStep={currentStep} />;
       default:
         return null;
     }

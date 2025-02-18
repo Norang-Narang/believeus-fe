@@ -5,8 +5,10 @@ import Button from "../../../../../components/common/Button";
 import styles from "../../SignupManager.module.css";
 import signupCompleteImage from "../../../../../assets/signupcomplete.png";
 import { PATH } from "../../../../../constants/path";
+import StepProgress from "../../../../../components/common/StepProgress";
+import { STEPS } from "../..";
 
-const SignupComplete = () => {
+const SignupComplete = ({ currentStep }) => {
   const navigate = useNavigate();
 
   const handleStart = () => {
@@ -29,6 +31,10 @@ const SignupComplete = () => {
         />
       </div>
       <div className={styles.buttonWrapper}>
+        <StepProgress
+          totalSteps={Object.keys(STEPS).length}
+          currentStep={currentStep}
+        />
         <Button size="large" variant="primary" fullWidth onClick={handleStart}>
           시작하기
         </Button>
