@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "../../../../../components/common/Typography";
 import Input from "../../../../../components/common/Input";
 import Checkbox from "../../../../../components/common/Checkbox";
@@ -7,8 +7,14 @@ import styles from "../../SignupCenter.module.css";
 import Dropdown from "../../../../../components/common/Dropdown";
 import StepProgress from "../../../../../components/common/StepProgress";
 import { STEPS } from "../..";
+import DatePicker from "../../../../../components/common/DayPicker";
+import TimePicker from "../../../../../components/common/TimePicker";
 
 const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+
   return (
     <div className={styles.container}>
       <Typography variant="h-b-24" className={styles.title}>
@@ -46,6 +52,27 @@ const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
         placeholder="센터 등급"
       />
       <div className={styles.inputWrapper}>
+        <DatePicker
+          label="설립 일자"
+          placeholder="yyyy-mm-dd"
+          value={selectedDate}
+          onChange={setSelectedDate}
+        />
+        <div className={styles.timeRangeWrapper}>
+          <TimePicker
+            label="운영 시작 시간"
+            placeholder="시작 시간"
+            value={startTime}
+            onChange={setStartTime}
+          />
+          <div className={styles.timeRangeDivider}>-</div>
+          <TimePicker
+            label="운영 종료 시간"
+            placeholder="종료 시간"
+            value={endTime}
+            onChange={setEndTime}
+          />
+        </div>
         <Input
           size="Xlarge"
           type="text"
