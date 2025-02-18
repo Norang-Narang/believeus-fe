@@ -12,7 +12,16 @@ export const routes = [
   {
     path: "/",
     element: <Layout />,
+
     children: [
+      {
+        path: "", // 루트 경로
+        element: <div>루트</div>,
+        layout: {
+          showNav: false,
+          showTopNav: false,
+        },
+      },
       {
         path: PATH.HOME,
         element: <Home />,
