@@ -11,7 +11,7 @@
 .iconButton {
   background: none;
   border: none;
-  padding: var(--spacing-8);
+  padding: 0;
   cursor: pointer;
   color: var(--color-grayscale-900);
   display: flex;
