@@ -3,4 +3,5 @@ export const PATH = {
   MATCHING: "/matching",
   WORK_CONDITION: "/work-condition",
   MY_PAGE: "/mypage",
+  SIGNUP_MANAGER: "/signup/manager",
 };
