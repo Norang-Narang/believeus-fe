@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Typography from "../../components/common/Typography";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
@@ -9,6 +10,12 @@ import naver from "./icons/naver.svg";
 // TODO : 스타일링 다시 하기
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleSignupClick = () => {
+    navigate("/signup");
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -40,7 +47,11 @@ const Login = () => {
         </Button>{" "}
         <div className={styles.newUserSection}>
           <Typography variant="c-r-12">처음 이용하시나요?</Typography>
-          <Typography variant="c-sb-12" className={styles.signupLink}>
+          <Typography
+            variant="c-sb-12"
+            className={styles.signupLink}
+            onClick={handleSignupClick}
+            style={{ cursor: "pointer" }}>
             회원가입하기
           </Typography>
         </div>
