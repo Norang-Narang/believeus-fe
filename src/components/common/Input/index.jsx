@@ -11,6 +11,7 @@ export default function Input({
   placeholder,
   label,
   error,
+  fullWidth = false,
   ...rest
 }) {
   const [isFocused, setIsFocused] = useState(false);
@@ -18,6 +19,7 @@ export default function Input({
     styles.base,
     styles[variant],
     isFocused ? styles.Focused : styles[props],
+    fullWidth && styles.fullWidth,
     styles[size],
   ]
     .filter(Boolean)

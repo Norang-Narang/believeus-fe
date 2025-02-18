@@ -1,5 +1,6 @@
 .base {
   display: inline-flex;
+  max-height: 48px;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-8);
@@ -113,10 +114,14 @@
   background: transparent;
 }
 
-.grayscale-texted:hover:not(:disabled) {
+.grayscale-texted:hover:not(:disabled):not(.icon-small) {
   background: var(--color-grayscale-100);
 }
 
+/* icon-small 버튼은 hover 시 배경색 변경 없이 아이콘 색상만 변경 */
+.grayscale-texted.icon-small:hover:not(:disabled) {
+  color: var(--color-grayscale-600);
+}
 .grayscale-circle {
   background: var(--color-grayscale-500);
   color: var(--color-grayscale-500);
@@ -140,6 +145,22 @@
   width: 42px;
   height: 42px;
   padding: var(--spacing-8);
+}
+
+.icon-small {
+  transform: translateY(1px);
+  width: 18px;
+  height: 18px;
+  padding: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+}
+
+.icon-small:hover {
+  background-color: white;
+  color: var(--color-primary-500);
 }
 
 /* Sizes */

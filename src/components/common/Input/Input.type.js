@@ -8,4 +8,5 @@ export const InputTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
+  fullWidth: PropTypes.bool,
 };
