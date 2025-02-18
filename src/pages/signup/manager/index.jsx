@@ -34,7 +34,7 @@ const SignupManager = () => {
       case STEPS.PROFILE_SETUP:
         return <ProfileSetupForm onNext={handleNext} data={formData} />;
       case STEPS.COMPLETE:
-        return <SignupComplete onNext={handleNext} />;
+        return <SignupComplete />;
       default:
         return null;
     }
@@ -42,7 +42,9 @@ const SignupManager = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.formWrapper}>{renderStep()}</div>
+      <div key={currentStep} className={styles.formWrapper}>
+        {renderStep()}
+      </div>
     </div>
   );
 };
