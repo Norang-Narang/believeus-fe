@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { InputTypes } from "./Input.type";
 import styles from "./Input.module.css";
+import Typography from "../Typography";
 
 export default function Input({
   type = "text",
@@ -33,7 +34,9 @@ export default function Input({
   return (
     <div className={styles.container}>
       {variant === "text-with-label" && (
-        <label className={styles.label}>{label}</label>
+        <Typography variant="l-sb-12" className={styles.label}>
+          {label}
+        </Typography>
       )}
       {size === "Xlarge" ? (
         <textarea

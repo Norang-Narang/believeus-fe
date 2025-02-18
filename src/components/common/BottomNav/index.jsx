@@ -1,9 +1,9 @@
 import React from "react";
-import { NavbarTypes } from "./Navbar.type";
-import styles from "./Navbar.module.css";
+import { BottomNavTypes } from "./BottomNav.type";
+import styles from "./BottomNav.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar({ activeItem, items, onItemClick }) {
+export default function BottomNav({ activeItem, items, onItemClick }) {
   const navigate = useNavigate();
 
   const handleClick = (item) => {
@@ -28,4 +28,4 @@ export default function Navbar({ activeItem, items, onItemClick }) {
   );
 }
 
-Navbar.propTypes = NavbarTypes;
+BottomNav.propTypes = BottomNavTypes;

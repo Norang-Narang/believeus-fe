@@ -59,7 +59,7 @@ export const WithIcon = {
   args: {
     children: "아이콘 버튼",
     type: "with-icon",
-    icon: <IoAdd size={12} />,
+    icon: <IoAdd size={20} />,
   },
 };
 

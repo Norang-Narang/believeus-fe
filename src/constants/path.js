@@ -4,5 +4,3 @@ export const PATH = {
   WORK_CONDITION: "/work-condition",
   MY_PAGE: "/mypage",
 };
-
-export const HIDDEN_NAV_PATH = ["/", "/login", "/signup"];

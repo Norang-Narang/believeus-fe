@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { PATH } from "../../../constants/path";
 
-export const NavbarTypes = {
+export const BottomNavTypes = {
   activeItem: PropTypes.oneOf(Object.values(PATH)),
 
   items: PropTypes.arrayOf(

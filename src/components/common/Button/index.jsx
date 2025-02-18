@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonTypes } from "./Button.type";
 import styles from "./Button.module.css";
+import Typography from "../Typography";
 
 export default function Button({
   type = "text",
@@ -23,6 +24,9 @@ export default function Button({
     .join(" ");
 
   const renderContent = () => {
+    const textVariant =
+      size === "small" || style === "circle" ? "b-r-16" : "t-sb-20";
+
     switch (type) {
       case "icon-only":
         return icon;
@@ -30,11 +34,11 @@ export default function Button({
         return (
           <>
             {icon}
-            <span className={styles.label}>{children}</span>
+            <Typography variant={textVariant}>{children}</Typography>
           </>
         );
       default:
-        return <span className={styles.label}>{children}</span>;
+        return <Typography variant={textVariant}>{children}</Typography>;
     }
   };
 

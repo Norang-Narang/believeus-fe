@@ -5,7 +5,6 @@
 }
 
 .label {
-  font: var(--font-t-r-16);
   color: var(--color-grayscale-200);
 }
 
@@ -13,7 +12,6 @@
   width: 100%;
   border: 1.5px solid var(--color-grayscale-300);
   border-radius: 8px;
-  font: var(--font-t-r-16);
   color: var(--color-grayscale-900);
   transition: all 0.2s ease-in-out;
   outline: none;
@@ -43,13 +41,12 @@
 }
 
 .Error {
-  color: rgb(0, 0, 0);
+  color: var(--color-error);
   border-color: var(--color-error);
   background-color: var(--color-error-container);
 }
 
 .Error ~ .error {
-  font: var(--font-t-r-14);
   color: var(--color-error);
   margin-top: var(--spacing-4);
 }
@@ -57,19 +54,16 @@
 /* Sizes */
 .small {
   width: 312px;
-  padding: var(--spacing-12) var(--spacing-10);
-  font: var(--font-t-r-14);
 }
 
 .large {
   padding: var(--spacing-12) var(--spacing-16);
-  font: var(--font-t-r-16);
 }
 
 .Xlarge {
   height: 114px;
   padding: var(--spacing-12) var(--spacing-16);
-  font: var(--font-t-r-18);
+
   vertical-align: top;
   resize: none;
 }
