@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export const ButtonTypes = {
   type: PropTypes.oneOf(["text", "icon-only", "with-icon"]),
-  size: PropTypes.oneOf(["small", "large"]),
+  size: PropTypes.oneOf(["small", "large", "icon-small"]),
   color: PropTypes.oneOf(["primary", "secondary", "grayscale"]),
   style: PropTypes.oneOf(["contained", "outlined", "texted", "circle"]),
   icon: PropTypes.element,
