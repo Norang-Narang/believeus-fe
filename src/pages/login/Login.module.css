@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: 100%;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-32);
