@@ -181,3 +181,13 @@
   border-color: transparent !important;
   cursor: not-allowed;
 }
+
+.kakao-contained {
+  background-color: #fee500 !important;
+  color: #000000 !important;
+}
+
+.naver-contained {
+  background-color: #03c75a !important;
+  color: #ffffff !important;
+}
