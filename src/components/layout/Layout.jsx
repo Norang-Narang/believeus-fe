@@ -1,48 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import styles from "./Layout.module.css";
 import BottomNav from "../common/BottomNav";
-import { NAV_ITEMS } from "../../constants/menu";
-import { HIDDEN_NAV_PATH } from "../../constants/path";
 import TopNav from "../common/TopNav";
+import { NAV_ITEMS } from "../../constants/menu";
+import { routes } from "../../App";
 
 const Layout = () => {
   const location = useLocation();
-  const [activeItem, setActiveItem] = useState(() => {
-    const currentPath = location.pathname;
-    const currentItem = NAV_ITEMS.find((item) => item.path === currentPath);
-    return currentItem?.path || "/home";
-  });
+  const [activeItem, setActiveItem] = useState(location.pathname);
 
-  const showNav = !HIDDEN_NAV_PATH.includes(location.pathname);
+  const currentRoute = routes[0]?.children?.find(
+    (child) =>
+      child.path === location.pathname || `/${child.path}` === location.pathname
+  );
 
-  useEffect(() => {
-    const currentItem = NAV_ITEMS.find(
-      (item) => item.path === location.pathname
-    );
-    if (currentItem) {
-      setActiveItem(currentItem.path);
-    }
-  }, [location.pathname]);
-
-  const handleNavItemClick = (item) => {
-    setActiveItem(item.path);
+  const layoutConfig = currentRoute?.layout || {
+    showNav: true,
+    showTopNav: true,
   };
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <TopNav variant="text-with-icon" label="마이페이지" />
-      </header>
+      {layoutConfig.showTopNav && (
+        <header className={styles.header}>
+          <TopNav {...layoutConfig.topNavProps} />
+        </header>
+      )}
       <main className={styles.main}>
         <Outlet />
       </main>
-      {showNav && (
+      {layoutConfig.showNav && (
         <footer className={styles.footer}>
           <BottomNav
             items={NAV_ITEMS}
             activeItem={activeItem}
-            onItemClick={handleNavItemClick}
+            onItemClick={(item) => setActiveItem(item.path)}
           />
         </footer>
       )}
