@@ -3,11 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Mypage from "./pages/Mypage";
-import Login from "./pages/Login";
+
 import { PATH } from "../src/constants/path";
 import Matching from "./pages/Matching";
 import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
+
+import Login from "./pages/login/index";
+import Signup from "./pages/signup";
 
 export const routes = [
   {
@@ -62,6 +65,14 @@ export const routes = [
       {
         path: "login",
         element: <Login />,
+        layout: {
+          showNav: false,
+          showTopNav: false,
+        },
+      },
+      {
+        path: "signup",
+        element: <Signup />,
         layout: {
           showNav: false,
           showTopNav: false,
