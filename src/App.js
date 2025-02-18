@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import { PATH } from "../src/constants/path";
 import Matching from "./pages/Matching";
 import WorkCondition from "./pages/WorkCondition";
+import ManagerSignup from "./pages/signup/manager";
 
 export const routes = [
   {
@@ -64,6 +65,15 @@ export const routes = [
         layout: {
           showNav: false,
           showTopNav: false,
+        },
+      },
+      {
+        path: PATH.SIGNUP_MANAGER,
+        element: <ManagerSignup />,
+        layout: {
+          showNav: false,
+          showTopNav: true,
+          topNavProps: { variant: "only-icon" },
         },
       },
     ],
