@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "../../../../../components/common/Typography";
 import Input from "../../../../../components/common/Input";
 import Checkbox from "../../../../../components/common/Checkbox";
@@ -16,6 +16,18 @@ const RequiredCenterForm = ({ onNext, data = {}, currentStep }) => {
     phone: "",
     hasBathVehicle: false,
   });
+
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const { name, centerName, address, phone } = formData;
+    setIsValid(
+      name.trim() !== "" &&
+        centerName.trim() !== "" &&
+        address.trim() !== "" &&
+        phone.trim() !== ""
+    );
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -105,7 +117,12 @@ const RequiredCenterForm = ({ onNext, data = {}, currentStep }) => {
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={handleNext}>
+        <Button
+          size="large"
+          variant="primary"
+          fullWidth
+          onClick={handleNext}
+          disabled={!isValid}>
           다음
         </Button>
       </div>

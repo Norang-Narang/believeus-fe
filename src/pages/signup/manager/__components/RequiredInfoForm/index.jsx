@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "../../../../../components/common/Typography";
 import Input from "../../../../../components/common/Input";
 import Checkbox from "../../../../../components/common/Checkbox";
@@ -16,6 +16,15 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
     hasVehicle: false,
     hasDementiaTraining: false,
   });
+
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const { name, phone, address } = formData;
+    setIsValid(
+      name.trim() !== "" && phone.trim() !== "" && address.trim() !== ""
+    );
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -99,7 +108,12 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={handleNext}>
+        <Button
+          size="large"
+          variant="primary"
+          fullWidth
+          onClick={handleNext}
+          disabled={!isValid}>
           다음
         </Button>
       </div>
