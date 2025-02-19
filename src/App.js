@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
-import Mypage from "./pages/Mypage";
+import { BiSolidEdit } from "react-icons/bi";
 
 import { PATH } from "../src/constants/path";
 import Matching from "./pages/Matching";
@@ -10,8 +10,9 @@ import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
 import SignupCenter from "./pages/signup/center";
 
-import Login from "./pages/login/index";
+import Login from "./pages/login/Login";
 import Signup from "./pages/signup";
+import Mypage from "./pages/mypage/Mypage";
 
 export const routes = [
   {
@@ -60,7 +61,23 @@ export const routes = [
         layout: {
           showNav: true,
           showTopNav: true,
-          topNavProps: { variant: "only-icon" },
+          topNavProps: {
+            variant: "text-with-icon",
+            label: "마이페이지",
+            rightIcons: [
+              <BiSolidEdit
+                size={24}
+                style={{
+                  color: "var(--color-grayscale-400)",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  // TODO: 모달 열기 함수 추가
+                  console.log("edit clicked");
+                }}
+              />,
+            ],
+          },
         },
       },
       {

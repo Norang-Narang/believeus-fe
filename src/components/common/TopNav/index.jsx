@@ -5,7 +5,12 @@ import { IoChevronBack } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import Typography from "../Typography";
 
-export default function TopNav({ variant = "only-icon", icon, label }) {
+export default function TopNav({
+  variant = "only-icon",
+  icon,
+  label,
+  rightIcons,
+}) {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -17,16 +22,21 @@ export default function TopNav({ variant = "only-icon", icon, label }) {
       case "only-icon":
         return (
           <button className={styles.iconButton} onClick={handleBackClick}>
-            <IoChevronBack size={18} />
+            {icon || <IoChevronBack size={18} />}
           </button>
         );
       case "only-text":
         return (
-          <div className={styles.label}>
-            <Typography variant="h-b-18" component="h1">
-              {label}
-            </Typography>
-          </div>
+          <>
+            <button className={styles.iconButton} onClick={handleBackClick}>
+              <IoChevronBack size={18} />
+            </button>
+            <div className={styles.label}>
+              <Typography variant="h-b-18" component="h1">
+                {label}
+              </Typography>
+            </div>
+          </>
         );
       case "text-with-icon":
         return (
@@ -39,6 +49,15 @@ export default function TopNav({ variant = "only-icon", icon, label }) {
                 {label}
               </Typography>
             </div>
+            {rightIcons && (
+              <div className={styles.rightSection}>
+                {rightIcons.map((icon, index) => (
+                  <span key={index} className={styles.rightIcon}>
+                    {icon}
+                  </span>
+                ))}
+              </div>
+            )}
           </>
         );
       default:
