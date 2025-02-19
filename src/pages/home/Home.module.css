@@ -1,0 +1,202 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    min-height: 100vh;
+  }
+  
+  .header {
+    margin-bottom: 24px;
+  }
+  
+  .userName {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #e6e6e6;
+    width: 100%;
+  }
+  
+  .matchingSection {
+    margin-bottom: 24px;
+  }
+  
+  .sectionTitle {
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  
+  .matchingCarousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .navButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .navButton:first-child {
+    left: 0;
+  }
+  
+  .navButton:last-child {
+    right: 0;
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+  
+  .matchingProfiles {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 8px 4px;
+    -webkit-overflow-scrolling: touch; 
+    -ms-overflow-style: none; 
+  }
+  
+  .matchingProfiles::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .matchingProfiles::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .matchingProfiles::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+  
+  .profileCard {
+    min-width: 220px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #EEEEEE;
+  }
+  
+  .profileHeader {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  
+  .profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+  }
+  
+  .profileImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profileName {
+    margin-bottom: 4px;
+  }
+  
+  .profileAge {
+    color: #666;
+  }
+  
+  .profileDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .messageTitle {
+    color: whit;
+    margin-bottom: 10px;
+  }
+  .notificationBox {
+    margin-bottom: 16px;
+  }
+  
+  .messageNotification {
+    background-color: #4F7FFF;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .messageIcon {
+    margin-right: 12px;
+  }
+  
+  .messageContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  .messageTitle2 {
+    margin-bottom: 1px;
+    color: white;
+  }
+  
+  .messageCount {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .viewButton {
+    opacity: 0.5;
+    border-radius: 15px;
+    padding: 8px;
+    margin-left: auto;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .menuItem {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .menuIcon {
+    margin-right: 16px;
+  }
+  
+  .menuArrow {
+    margin-left: auto;
+  }
