@@ -4,6 +4,7 @@ import RequiredCenterForm from "./__components/RequiredCenterForm";
 import OptionalCenterForm from "./__components/OptionalCenterForm";
 import CenterProfileForm from "./__components/CenterProfileForm";
 import SignupComplete from "./__components/SignupComplete";
+import { authAPI } from "../../../services";
 
 export const STEPS = {
   REQUIRED_INFO: 0,
@@ -16,10 +17,43 @@ const SignupCenter = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.REQUIRED_INFO);
   const [formData, setFormData] = useState({});
 
-  const handleNext = (stepData = {}) => {
-    setFormData((prev) => ({ ...prev, ...stepData }));
-    setCurrentStep((prev) => prev + 1);
+  const handleNext = async (stepData = {}) => {
+    const newFormData = { ...formData, ...stepData };
+    setFormData(newFormData);
+
+    if (currentStep === STEPS.PROFILE_SETUP) {
+      try {
+        const userId = localStorage.getItem("userId");
+        if (!userId) {
+          throw new Error("사용자 정보를 찾을 수 없습니다.");
+        }
+
+        const response = await authAPI.registerAdminInfo(userId, {
+          userId: parseInt(userId),
+          name: newFormData.name,
+          centerName: newFormData.centerName,
+          phone: newFormData.phone,
+          address: newFormData.address,
+          centerGrade: newFormData.centerGrade,
+          hasBathVehicle: Boolean(newFormData.hasBathVehicle),
+          operatingPeriod: newFormData.operatingPeriod || "",
+          introduction: newFormData.introduction || "",
+          profileImageUrl: newFormData.profileImageUrl || "",
+        });
+
+        if (response.status === 200) {
+          setCurrentStep(STEPS.COMPLETE);
+        }
+      } catch (error) {
+        console.error("Error registering admin info:", error);
+        console.error("Error response data:", error.response?.data);
+      }
+    } else {
+      setCurrentStep(currentStep + 1);
+    }
   };
+
+  console.log("Rendering step:", currentStep);
 
   const renderStep = () => {
     switch (currentStep) {
@@ -54,13 +88,7 @@ const SignupCenter = () => {
     }
   };
 
-  return (
-    <div className={styles.container}>
-      <div key={currentStep} className={styles.formWrapper}>
-        {renderStep()}
-      </div>
-    </div>
-  );
+  return <div className={styles.container}>{renderStep()}</div>;
 };
 
 export default SignupCenter;
