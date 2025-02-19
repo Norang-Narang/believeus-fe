@@ -13,6 +13,7 @@ import SignupCenter from "./pages/signup/center";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup";
 import Mypage from "./pages/mypage/Mypage";
+import Onboarding from "./pages/Onboarding";
 
 export const routes = [
   {
@@ -22,7 +23,7 @@ export const routes = [
     children: [
       {
         path: "", // 루트 경로
-        element: <div>루트</div>,
+        element: <Onboarding />,
         layout: {
           showNav: false,
           showTopNav: false,
