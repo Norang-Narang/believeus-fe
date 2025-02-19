@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "../../../../../components/common/Typography";
 import Input from "../../../../../components/common/Input";
 import Checkbox from "../../../../../components/common/Checkbox";
@@ -9,6 +9,42 @@ import StepProgress from "../../../../../components/common/StepProgress";
 import { STEPS } from "../..";
 
 const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    hasVehicle: false,
+    hasDementiaTraining: false,
+  });
+
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const { name, phone, address } = formData;
+    setIsValid(
+      name.trim() !== "" && phone.trim() !== "" && address.trim() !== ""
+    );
+  }, [formData]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (name) => (checked) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: checked,
+    }));
+  };
+
+  const handleNext = () => {
+    onNext(formData);
+  };
+
   return (
     <div className={styles.container}>
       <Typography variant="h-b-24" className={styles.title}>
@@ -22,6 +58,9 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
       </div>
       <div className={styles.inputWrapper}>
         <Input
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
           size="large"
           type="text"
           variant="text-with-label"
@@ -30,6 +69,9 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
           fullWidth
         />
         <Input
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
           size="large"
           type="tel"
           variant="text-with-label"
@@ -38,6 +80,9 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
           fullWidth
         />
         <Input
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
           size="large"
           type="text"
           variant="text-with-label"
@@ -47,15 +92,28 @@ const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
         />
       </div>
       <div className={styles.checkboxWrapper}>
-        <Checkbox label="차량을 보유하고 있어요" />
-        <Checkbox label="치매교육을 이수했어요" />
+        <Checkbox
+          label="차량을 보유하고 있어요"
+          checked={formData.hasVehicle}
+          onChange={handleCheckboxChange("hasVehicle")}
+        />
+        <Checkbox
+          label="치매교육을 이수했어요"
+          checked={formData.hasDementiaTraining}
+          onChange={handleCheckboxChange("hasDementiaTraining")}
+        />
       </div>
       <div className={styles.buttonWrapper}>
         <StepProgress
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={onNext}>
+        <Button
+          size="large"
+          variant="primary"
+          fullWidth
+          onClick={handleNext}
+          disabled={!isValid}>
           다음
         </Button>
       </div>

@@ -16,6 +16,12 @@ const ProfileSetupForm = ({ onNext, data = {}, currentStep }) => {
     setProfileImage(imageUrl);
   };
 
+  const handleNext = () => {
+    onNext({
+      profileImageUrl: profileImage,
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Typography variant="h-b-24" className={styles.title}>
@@ -32,14 +38,14 @@ const ProfileSetupForm = ({ onNext, data = {}, currentStep }) => {
           onImageSelect={handleImageSelect}
           imageUrl={profileImage}
         />
-        <Typography variant="t-sb-24">MONICX</Typography>
+        <Typography variant="t-sb-24">{data.name || ""}</Typography>
       </div>
       <div className={styles.buttonWrapper}>
         <StepProgress
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={onNext}>
+        <Button size="large" variant="primary" fullWidth onClick={handleNext}>
           다음
         </Button>
       </div>

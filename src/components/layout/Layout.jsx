@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import styles from "./Layout.module.css";
 import BottomNav from "../common/BottomNav";
@@ -9,6 +9,10 @@ import { routes } from "../../App";
 const Layout = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState(location.pathname);
+
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location.pathname]);
 
   const currentRoute = routes[0]?.children?.find(
     (child) =>
@@ -35,7 +39,9 @@ const Layout = () => {
           <BottomNav
             items={NAV_ITEMS}
             activeItem={activeItem}
-            onItemClick={(item) => setActiveItem(item.path)}
+            onItemClick={(item) => {
+              setActiveItem(item.path);
+            }}
           />
         </footer>
       )}
