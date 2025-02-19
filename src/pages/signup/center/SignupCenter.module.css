@@ -115,3 +115,19 @@
   padding-bottom: var(--spacing-12);
   color: var(--color-grayscale-400);
 }
+
+.formWrapper {
+  width: 100%;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

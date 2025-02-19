@@ -46,14 +46,11 @@ const SignupCenter = () => {
         }
       } catch (error) {
         console.error("Error registering admin info:", error);
-        console.error("Error response data:", error.response?.data);
       }
     } else {
       setCurrentStep(currentStep + 1);
     }
   };
-
-  console.log("Rendering step:", currentStep);
 
   const renderStep = () => {
     switch (currentStep) {
@@ -88,7 +85,13 @@ const SignupCenter = () => {
     }
   };
 
-  return <div className={styles.container}>{renderStep()}</div>;
+  return (
+    <div className={styles.container}>
+      <div key={currentStep} className={styles.formWrapper}>
+        {renderStep()}
+      </div>
+    </div>
+  );
 };
 
 export default SignupCenter;
