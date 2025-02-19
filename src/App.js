@@ -5,7 +5,7 @@ import Home from "./pages/home/index";
 import Mypage from "./pages/Mypage";
 
 import { PATH } from "../src/constants/path";
-import Matching from "./pages/Matching";
+import Matching from "./pages/matching/index";
 import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
 import SignupCenter from "./pages/signup/center";

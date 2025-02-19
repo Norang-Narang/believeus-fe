@@ -1,0 +1,255 @@
+.container {
+    padding: 20px;
+  }
+  
+  .filterSection {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .filterButtons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filterButton {
+    border: none;
+    background: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .arrowIcon {
+    font-size: 12px;
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;  /* 수평 중앙 정렬 */
+    margin-top: 9%;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background: white;
+    border-radius: 8px;
+    width: 30%;
+    max-width: 300px; /* 모달 최대 너비 축소 */
+    height: 150px;
+    padding: 16px; /* 패딩 축소 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px; /* 마진 축소 */
+  }
+  
+  .modalBody {
+    padding: 6px 0; /* 패딩 축소 */
+  }
+  
+  .salaryTypeSelector {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* 갭 축소 */
+  }
+  
+  .salaryInputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .salaryInputs input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Time selection styles */
+  .timeSelectionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .timeSelector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    width: 45%;
+  }
+  
+  .timeSelector:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .selectedTime {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  .timeSeparator {
+    font-size: 18px;
+    margin: 0 5px;
+  }
+  
+  /* Time picker overlay */
+  .timePickerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  .timePickerContent {
+    background: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .timePickerHeader {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .timePickerBody {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+  }
+  
+  .timePickerColumns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  
+  .timeColumn {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 150px;
+    width: 100px;
+    scroll-snap-type: y mandatory;
+    position: relative;
+    text-align: center;
+    scrollbar-width: none;
+  }
+  
+  .timeColumn::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .timeOption {
+    padding: 10px 0;
+    font-size: 22px;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    height: 50px;
+  }
+  
+  .selectedTimeOption {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+
+  
+  .confirmButton:hover {
+    background: #3070ee;
+  }
+  
+  .workerList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: calc(100vh - 120px); /* 높이 조정 */
+    overflow-y: auto;
+  }
+  
+  .workerCard {
+    display: flex;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .profileImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .profileImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .workerInfo {
+    flex: 1;
+    min-width: 0; /* 텍스트 오버플로우 방지 */
+  }
+  
+  .workerNameAge {
+    margin-bottom: 5px;
+  }
+  
+  .workerLocation {
+    color: #666;
+  }
+  
+  .workerEmploymentInfo {
+    text-align: right;
+    display: flex;
+    flex-direction: column;  /* 세로로 나열 */
+    gap: 5px;  /* 간격을 줄여줄 수 있는 속성 */
+  }
+  
+  .workHours {
+    margin-bottom: 5px;
+  }
+  
+  .wage {
+    color: #2196F3;
+  }
