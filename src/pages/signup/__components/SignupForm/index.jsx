@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Typography from "../../../../components/common/Typography";
 import Input from "../../../../components/common/Input";
@@ -16,6 +16,17 @@ const SignupForm = (props) => {
     passwordConfirm: "",
   });
   const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const { username, password, passwordConfirm } = formData;
+    setIsValid(
+      username.trim() !== "" &&
+        password.trim() !== "" &&
+        passwordConfirm.trim() !== "" &&
+        password === passwordConfirm
+    );
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -95,13 +106,22 @@ const SignupForm = (props) => {
 
       <div className={styles.buttonWrapper}>
         <Button
-          color="primary"
           size="large"
-          style="contained"
+          variant="primary"
           fullWidth
-          onClick={handleNextClick}>
+          onClick={handleNextClick}
+          disabled={!isValid}>
           다음
         </Button>
+        <div className={styles.newUserSection}>
+          <Typography variant="c-r-12">이미 계정이 있으신가요?</Typography>
+          <Typography
+            variant="c-sb-12"
+            className={styles.signupLink}
+            style={{ cursor: "pointer" }}>
+            로그인하기
+          </Typography>
+        </div>
       </div>
 
       <div className={styles.divider}>

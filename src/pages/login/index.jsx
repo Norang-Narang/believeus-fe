@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Typography from "../../components/common/Typography";
 import Input from "../../components/common/Input";
@@ -17,6 +17,12 @@ const Login = () => {
     password: "",
   });
   const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    const { username, password } = formData;
+    setIsValid(username.trim() !== "" && password.trim() !== "");
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,7 +74,7 @@ const Login = () => {
           fullWidth
         />
         {error && (
-          <Typography variant="c-r-12" color="error">
+          <Typography variant="c-r-12" style={{ color: "red" }}>
             {error}
           </Typography>
         )}
@@ -79,11 +85,11 @@ const Login = () => {
 
       <div className={styles.buttonWrapper}>
         <Button
-          color="primary"
           size="large"
-          style="contained"
+          variant="primary"
           fullWidth
-          onClick={handleLogin}>
+          onClick={handleLogin}
+          disabled={!isValid}>
           로그인
         </Button>
         <div className={styles.newUserSection}>
