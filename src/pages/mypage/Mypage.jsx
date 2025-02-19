@@ -59,7 +59,11 @@ const Mypage = () => {
       <div className={styles.container}>
         <div className={styles.profileSection}>
           <div className={styles.profileImage}>
-            <img src="/default-profile.png" alt="프로필" />
+            <div className={styles.defaultProfile}>
+              <Typography variant="h-b-24" color="white">
+                BU
+              </Typography>
+            </div>
           </div>
           <Typography variant="h-b-24" className={styles.userName}>
             {userInfo.name}
