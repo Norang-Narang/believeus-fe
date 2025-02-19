@@ -6,6 +6,7 @@ import OptionalInfoForm from "./__components/OptionalInfoForm";
 import ProfileSetupForm from "./__components/ProfileSetupForm";
 import SignupComplete from "./__components/SignupComplete";
 import StepProgress from "../../../components/common/StepProgress";
+import { authAPI } from "../../../services";
 
 export const STEPS = {
   REQUIRED_INFO: 0,
@@ -19,9 +20,47 @@ const SignupManager = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.REQUIRED_INFO);
   const [formData, setFormData] = useState({});
 
-  const handleNext = (stepData = {}) => {
-    setFormData((prev) => ({ ...prev, ...stepData }));
-    setCurrentStep((prev) => prev + 1);
+  const handleNext = async (stepData = {}) => {
+    const newFormData = { ...formData, ...stepData };
+    setFormData(newFormData);
+
+    if (currentStep === STEPS.PROFILE_SETUP) {
+      try {
+        const userId = localStorage.getItem("userId");
+        if (!userId) {
+          throw new Error("사용자 정보를 찾을 수 없습니다.");
+        }
+
+        const payload = {
+          userId: parseInt(userId),
+          name: newFormData.name,
+          phoneNumber: newFormData.phone,
+          hasVehicle: Boolean(newFormData.hasVehicle),
+          hasDementiaTraining: Boolean(newFormData.hasDementiaTraining),
+          experienceYears: newFormData.experienceYears || "",
+          majorExperience: newFormData.majorExperience || "",
+          introduction: newFormData.introduction || "",
+          profileImageUrl: newFormData.profileImageUrl || "",
+          certificates: [
+            {
+              type: "CAREGIVER",
+              number: newFormData.serialNumber,
+            },
+          ],
+        };
+
+        const response = await authAPI.registerCaregiver(userId, payload);
+
+        if (response.status === 200) {
+          setCurrentStep(STEPS.COMPLETE);
+        }
+      } catch (error) {
+        console.error("Error registering caregiver info:", error);
+        console.error("Error response data:", error.response?.data);
+      }
+    } else {
+      setCurrentStep(currentStep + 1);
+    }
   };
 
   const renderStep = () => {

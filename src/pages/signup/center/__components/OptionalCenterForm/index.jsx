@@ -14,6 +14,31 @@ const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
+  const [centerGrade, setCenterGrade] = useState("");
+  const [introduction, setIntroduction] = useState("");
+
+  console.log("Dropdown 현재 값:", centerGrade);
+
+  const handleDropdownSelect = (option) => {
+    console.log("선택된 옵션:", option);
+    setCenterGrade(option.value);
+  };
+
+  const handleIntroductionChange = (e) => {
+    setIntroduction(e.target.value);
+  };
+
+  const handleNext = () => {
+    console.log("Next 버튼 클릭시 centerGrade:", centerGrade);
+    const operatingPeriod = `${selectedDate} ${startTime}-${endTime}`;
+    const submitData = {
+      centerGrade,
+      operatingPeriod,
+      introduction,
+    };
+    console.log("제출되는 데이터:", submitData);
+    onNext(submitData);
+  };
 
   return (
     <div className={styles.container}>
@@ -28,28 +53,15 @@ const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
       </div>
       <Dropdown
         options={[
-          {
-            label: "1등급",
-            value: "option1",
-          },
-          {
-            label: "2등급",
-            value: "option2",
-          },
-          {
-            label: "3등급",
-            value: "option3",
-          },
-          {
-            label: "4등급",
-            value: "option4",
-          },
-          {
-            label: "5등급",
-            value: "option5",
-          },
+          { label: "1등급", value: "1" },
+          { label: "2등급", value: "2" },
+          { label: "3등급", value: "3" },
+          { label: "4등급", value: "4" },
+          { label: "5등급", value: "5" },
         ]}
         placeholder="센터 등급"
+        value={centerGrade}
+        onSelect={handleDropdownSelect}
       />
       <div className={styles.inputWrapper}>
         <DatePicker
@@ -74,6 +86,9 @@ const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
           />
         </div>
         <Input
+          name="introduction"
+          value={introduction}
+          onChange={handleIntroductionChange}
           size="Xlarge"
           type="text"
           variant="text-with-label"
@@ -87,7 +102,7 @@ const OptionalCenterForm = ({ onNext, data = {}, currentStep }) => {
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={onNext}>
+        <Button size="large" variant="primary" fullWidth onClick={handleNext}>
           다음
         </Button>
       </div>
