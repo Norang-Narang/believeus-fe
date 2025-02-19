@@ -72,8 +72,7 @@ export const routes = [
                   cursor: "pointer",
                 }}
                 onClick={() => {
-                  // TODO: 모달 열기 함수 추가
-                  console.log("edit clicked");
+                  window.dispatchEvent(new CustomEvent("openEditModal"));
                 }}
               />,
             ],

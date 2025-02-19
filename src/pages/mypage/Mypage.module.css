@@ -94,3 +94,13 @@
 .icon {
   color: var(--color-grayscale-400);
 }
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  min-width: 288px;
+  gap: var(--spacing-16);
+  margin: var(--spacing-48) 0;
+}
