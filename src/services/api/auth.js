@@ -14,7 +14,7 @@ export const authAPI = {
   // 로그인
   login: async (credentials) => {
     try {
-      const response = await client.post("/api/v1/auth/login", credentials);
+      const response = await client.post("/auth/login", credentials);
       if (response.data?.token) {
         localStorage.setItem("token", response.data.token);
       }

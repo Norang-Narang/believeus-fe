@@ -12,6 +12,7 @@ import SignupCenter from "./pages/signup/center";
 
 import Login from "./pages/login/index";
 import Signup from "./pages/signup";
+import ProtectedRoute from "./components/common/ProtectedRoute/index";
 
 export const routes = [
   {
@@ -29,7 +30,11 @@ export const routes = [
       },
       {
         path: PATH.HOME,
-        element: <Home />,
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
         layout: {
           showNav: true,
           showTopNav: true,
@@ -38,7 +43,11 @@ export const routes = [
       },
       {
         path: PATH.WORK_CONDITION,
-        element: <WorkCondition />,
+        element: (
+          <ProtectedRoute>
+            <WorkCondition />
+          </ProtectedRoute>
+        ),
         layout: {
           showNav: true,
           showTopNav: true,
@@ -47,7 +56,11 @@ export const routes = [
       },
       {
         path: PATH.MATCHING,
-        element: <Matching />,
+        element: (
+          <ProtectedRoute>
+            <Matching />
+          </ProtectedRoute>
+        ),
         layout: {
           showNav: true,
           showTopNav: true,
@@ -56,7 +69,11 @@ export const routes = [
       },
       {
         path: PATH.MY_PAGE,
-        element: <Mypage />,
+        element: (
+          <ProtectedRoute>
+            <Mypage />
+          </ProtectedRoute>
+        ),
         layout: {
           showNav: true,
           showTopNav: true,
