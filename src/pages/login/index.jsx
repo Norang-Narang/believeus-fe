@@ -4,8 +4,8 @@ import Typography from "../../components/common/Typography";
 import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import styles from "./Login.module.css";
-import kakao from "./icons/kakao.svg";
-import naver from "./icons/naver.svg";
+import kakao from "../../assets/icons/kakao.svg";
+import naver from "../../assets/icons/naver.svg";
 
 // TODO : 스타일링 다시 하기
 
