@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Mypage.module.css";
+import { authAPI } from "../../services";
 
 import { IoChevronForward } from "react-icons/io5";
 import Typography from "../../components/common/Typography";
@@ -9,7 +11,9 @@ import ImageUpload from "../../components/common/ImageUpload";
 import Input from "../../components/common/Input";
 
 const Mypage = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   useEffect(() => {
     const handleOpenModal = () => setIsModalOpen(true);
@@ -27,6 +31,16 @@ const Mypage = () => {
   const handleConfirmEdit = () => {
     // TODO: 수정 로직 구현
     setIsModalOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    authAPI.logout();
+    navigate("/login");
+    setShowLogoutModal(false);
   };
 
   const userInfo = {
@@ -83,8 +97,8 @@ const Mypage = () => {
             </button>
           ))}
           <div className={styles.divider}></div>
-          <button className={styles.menuItem}>
-            <Typography variant="b-r-16">로그아웃</Typography>{" "}
+          <button className={styles.menuItem} onClick={handleLogoutClick}>
+            <Typography variant="b-r-16">로그아웃</Typography>
             <IoChevronForward size={24} className={styles.icon} />
           </button>
         </div>
@@ -117,6 +131,20 @@ const Mypage = () => {
             placeholder="전화번호를 입력해주세요."
             fullWidth
           />
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        variant="two-button"
+        color="primary"
+        primaryButtonLabel="확인"
+        secondaryButtonLabel="취소"
+        onConfirm={handleLogoutConfirm}
+        onCancel={() => setShowLogoutModal(false)}>
+        <div className={styles.modalContent}>
+          <Typography variant="t-sb-18">로그아웃 하시겠습니까?</Typography>
         </div>
       </Modal>
     </>

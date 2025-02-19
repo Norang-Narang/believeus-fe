@@ -10,12 +10,6 @@ import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
 import SignupCenter from "./pages/signup/center";
 
-import Login from "./pages/login/Login";
-import Signup from "./pages/signup";
-import ProtectedRoute from "./components/common/ProtectedRoute/index";
-import Mypage from "./pages/mypage/Mypage";
-import Onboarding from "./pages/Onboarding";
-
 export const routes = [
   {
     path: "/",
