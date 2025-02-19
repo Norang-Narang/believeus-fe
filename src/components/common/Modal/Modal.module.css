@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 335px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+}
+
+.header {
+  padding: var(--spacing-24) var(--spacing-24) var(--spacing-16);
+  text-align: center;
+  border-bottom: none;
+}
+
+.closeButton {
+  position: absolute;
+  right: var(--spacing-16);
+  top: var(--spacing-16);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-grayscale-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-40) var(--spacing-24) var(--spacing-24);
+  text-align: center;
+}
+
+.footer {
+  padding: 0 var(--spacing-24) var(--spacing-24);
+}
+
+.twoButtonWrapper {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.twoButtonWrapper > button {
+  flex: 1;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
