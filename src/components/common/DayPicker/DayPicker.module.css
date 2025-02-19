@@ -1,0 +1,135 @@
+:global(.rdp) {
+  margin: 0;
+  width: 100%;
+}
+
+:global(.rdp-root) {
+  --rdp-accent-color: var(--color-primary-500) !important;
+  --rdp-accent-background-color: var(--color-primary-500) !important;
+  --rdp-background-color: var(--color-primary-100) !important;
+  --rdp-outline: none !important;
+  --rdp-outline-selected: none !important;
+  --rdp-selected-color: var(--color-primary-500) !important;
+  width: 100%;
+}
+
+:global(.rdp-day_selected) {
+  background-color: var(--color-primary-500) !important;
+  color: white !important;
+}
+
+:global(.rdp-day:hover:not(.rdp-day_selected)) {
+  background-color: var(--color-primary-100) !important;
+  color: black !important;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.calendarWrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  margin-top: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+:global(.rdp-months) {
+  width: 100%;
+  padding: var(--spacing-16);
+}
+
+:global(.rdp-month) {
+  width: 100%;
+}
+
+:global(.rdp-caption) {
+  padding: var(--spacing-8) 0;
+  margin-bottom: var(--spacing-16);
+}
+
+:global(.rdp-caption_label) {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-grayscale-900);
+}
+
+:global(.rdp-head_row) {
+  height: 40px;
+  border-bottom: 1px solid var(--color-grayscale-200);
+}
+
+:global(.rdp-head_cell) {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-grayscale-400);
+}
+
+:global(.rdp-head_cell:first-child) {
+  color: #ff5c5c;
+}
+
+:global(.rdp-head_cell:last-child) {
+  color: #5c7cff;
+}
+
+:global(.rdp-tbody) {
+  margin-top: var(--spacing-8);
+}
+
+:global(.rdp-day) {
+  height: var(--rdp-cell-size);
+  width: var(--rdp-cell-size);
+  font-size: 14px;
+  color: var(--color-grayscale-400);
+}
+
+:global(.rdp-day_range_start),
+:global(.rdp-day_range_end),
+:global(.rdp-day_range_middle) {
+  background-color: var(--color-primary-100);
+}
+
+:global(.rdp-day_range_start),
+:global(.rdp-day_range_end) {
+  background-color: var(--color-primary-300);
+  color: white;
+}
+
+:global(.rdp-day_today) {
+  color: var(--color-primary-500);
+  font-weight: 600;
+}
+
+:global(.rdp-day_selected::before),
+:global(.rdp-day_selected::after) {
+  display: none !important;
+}
+
+:global(.rdp-button_reset) {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+:global(*:focus) {
+  outline: none !important;
+}
+
+:global(.rdp-button),
+:global(.rdp-day),
+:global(.rdp-day_selected) {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+:global(.rdp-button:focus),
+:global(.rdp-button:focus-visible) {
+  outline-color: var(--color-primary-100) !important;
+}

@@ -1,0 +1,193 @@
+.base {
+  display: inline-flex;
+  max-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Primary styles */
+.primary-contained {
+  background: var(--color-primary-500);
+  color: white;
+}
+
+.primary-contained:hover:not(:disabled) {
+  background: var(--color-primary-600);
+}
+
+.primary-outlined {
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
+  background: transparent;
+}
+
+.primary-outlined:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+.primary-texted {
+  color: var(--color-primary-500);
+  background: transparent;
+}
+
+.primary-texted:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+.primary-circle {
+  border-color: var(--color-primary-500);
+  background: transparent;
+  color: var(--color-primary-500);
+  border-radius: 3.2rem;
+}
+
+.primary-circle:hover:not(:disabled) {
+  background: var(--color-primary-200);
+}
+
+/* Secondary styles */
+.secondary-contained {
+  background: var(--color-secondary-500);
+  color: white;
+}
+
+.secondary-contained:hover:not(:disabled) {
+  background: var(--color-secondary-600);
+}
+
+.secondary-outlined {
+  border-color: var(--color-secondary-500);
+  color: var(--color-secondary-500);
+  background: transparent;
+}
+
+.secondary-outlined:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+.secondary-texted {
+  color: var(--color-secondary-500);
+  background: transparent;
+}
+
+.secondary-texted:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+.secondary-circle {
+  background: var(--color-secondary-500);
+  color: var(--color-secondary-500);
+  border-radius: 3.2rem;
+}
+
+.secondary-circle:hover:not(:disabled) {
+  background: var(--color-secondary-200);
+}
+
+/* Grayscale styles */
+.grayscale-contained {
+  background: var(--color-grayscale-500);
+  color: white;
+}
+
+.grayscale-contained:hover:not(:disabled) {
+  background: var(--color-grayscale-600);
+}
+
+.grayscale-outlined {
+  border-color: var(--color-grayscale-500);
+  color: var(--color-grayscale-500);
+  background: transparent;
+}
+
+.grayscale-outlined:hover:not(:disabled) {
+  background: var(--color-grayscale-100);
+}
+
+.grayscale-texted {
+  color: var(--color-grayscale-500);
+  background: transparent;
+}
+
+.grayscale-texted:hover:not(:disabled):not(.icon-small) {
+  background: var(--color-grayscale-100);
+}
+
+/* icon-small 버튼은 hover 시 배경색 변경 없이 아이콘 색상만 변경 */
+.grayscale-texted.icon-small:hover:not(:disabled) {
+  color: var(--color-grayscale-600);
+}
+.grayscale-circle {
+  background: var(--color-grayscale-500);
+  color: var(--color-grayscale-500);
+  border-radius: 3.2rem;
+}
+
+.grayscale-circle:hover:not(:disabled) {
+  background: var(--color-grayscale-600);
+}
+
+/* Types */
+.text {
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+.with-icon {
+  padding: var(--spacing-12) var(--spacing-24);
+}
+
+.icon-only {
+  width: 42px;
+  height: 42px;
+  padding: var(--spacing-8);
+}
+
+.icon-small {
+  transform: translateY(1px);
+  width: 18px;
+  height: 18px;
+  padding: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+}
+
+.icon-small:hover {
+  background-color: white;
+  color: var(--color-primary-500);
+}
+
+/* Sizes */
+.small {
+  width: 84px;
+  padding: var(--spacing-8);
+  white-space: nowrap;
+}
+
+.large:not(.icon-only) {
+  width: 100%;
+}
+
+/* States */
+.disabled {
+  background: var(--color-grayscale-200) !important;
+  color: white !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+}
+
+.kakao-contained {
+  background-color: #fee500 !important;
+  color: #000000 !important;
+}
+
+.naver-contained {
+  background-color: #03c75a !important;
+  color: #ffffff !important;
+}

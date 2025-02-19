@@ -1,0 +1,80 @@
+.base {
+  font-size: var(--font-size-16);
+  line-height: var(--font-lineheight-16);
+}
+
+.h-b-32,
+.h-b-28,
+.h-b-24,
+.h-b-20,
+.h-b-18,
+.h-b-16 {
+  font-weight: var(--font-weight-bold);
+}
+
+.t-sb-24,
+.t-sb-20,
+.t-sb-18,
+.t-sb-16,
+.t-sb-14 {
+  font-weight: var(--font-weight-semibold);
+}
+
+.b-r-24,
+.b-r-20,
+.b-r-18,
+.b-r-16,
+.b-r-14 {
+  font-weight: var(--font-weight-regular);
+}
+
+.c-sb-12,
+.l-sb-12 {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-12);
+  line-height: var(--font-lineheight-12);
+}
+
+.h-b-32 {
+  font-size: var(--font-size-32);
+  line-height: var(--font-lineheight-32);
+}
+
+.h-b-28 {
+  font-size: var(--font-size-28);
+  line-height: var(--font-lineheight-28);
+}
+
+.h-b-24,
+.t-sb-24,
+.b-r-24 {
+  font-size: var(--font-size-24);
+  line-height: var(--font-lineheight-24);
+}
+
+.h-b-20,
+.t-sb-20,
+.b-r-20 {
+  font-size: var(--font-size-20);
+  line-height: var(--font-lineheight-20);
+}
+
+.h-b-18,
+.t-sb-18,
+.b-r-18 {
+  font-size: var(--font-size-18);
+  line-height: var(--font-lineheight-18);
+}
+
+.h-b-16,
+.t-sb-16,
+.b-r-16 {
+  font-size: var(--font-size-16);
+  line-height: var(--font-lineheight-16);
+}
+
+.t-sb-14,
+.b-r-14 {
+  font-size: var(--font-size-14);
+  line-height: var(--font-lineheight-14);
+}
