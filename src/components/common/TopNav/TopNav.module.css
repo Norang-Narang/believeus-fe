@@ -1,0 +1,26 @@
+.topNav {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-16);
+  background: var(--color-white);
+  position: relative;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-grayscale-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

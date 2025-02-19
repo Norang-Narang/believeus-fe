@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--color-primary-500);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checked {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+
+.icon {
+  color: white;
+}

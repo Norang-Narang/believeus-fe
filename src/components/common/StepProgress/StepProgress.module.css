@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-16) 0;
+  width: 100%;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.current {
+  background-color: var(--color-primary-500);
+}
+
+.completed {
+  background-color: var(--color-primary-200);
+}
+
+.upcoming {
+  background-color: var(--color-grayscale-200);
+}
+
+.connector {
+  width: 12px;
+  height: 1px;
+}

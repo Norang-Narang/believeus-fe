@@ -1,17 +1,19 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
-    "@storybook/preset-create-react-app",
-    "@storybook/addon-onboarding",
+    "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
+    "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
   ],
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["..\\public"],
+  docs: {
+    autodocs: "tag",
+  },
 };
+
 export default config;
