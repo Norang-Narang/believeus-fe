@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Typography from "../../../../../components/common/Typography";
 import Button from "../../../../../components/common/Button";
-import styles from "../../SignupManager.module.css";
+import styles from "../../SignupCenter.module.css";
 import signupCompleteImage from "../../../../../assets/signupcomplete.png";
 import { PATH } from "../../../../../constants/path";
 import StepProgress from "../../../../../components/common/StepProgress";

@@ -1,21 +1,18 @@
 import React, { useState } from "react";
-import styles from "./SignupManager.module.css";
-import RequiredInfoForm from "./__components/RequiredInfoForm";
-import CertificationForm from "./__components/CertificationForm";
-import OptionalInfoForm from "./__components/OptionalInfoForm";
-import ProfileSetupForm from "./__components/ProfileSetupForm";
+import styles from "./SignupCenter.module.css";
+import RequiredCenterForm from "./__components/RequiredCenterForm";
+import OptionalCenterForm from "./__components/OptionalCenterForm";
+import CenterProfileForm from "./__components/CenterProfileForm";
 import SignupComplete from "./__components/SignupComplete";
-import StepProgress from "../../../components/common/StepProgress";
 
 export const STEPS = {
   REQUIRED_INFO: 0,
-  CERTIFICATION: 1,
-  OPTIONAL_INFO: 2,
-  PROFILE_SETUP: 3,
-  COMPLETE: 4,
+  OPTIONAL_INFO: 1,
+  PROFILE_SETUP: 2,
+  COMPLETE: 3,
 };
 
-const SignupManager = () => {
+const SignupCenter = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.REQUIRED_INFO);
   const [formData, setFormData] = useState({});
 
@@ -28,15 +25,7 @@ const SignupManager = () => {
     switch (currentStep) {
       case STEPS.REQUIRED_INFO:
         return (
-          <RequiredInfoForm
-            onNext={handleNext}
-            data={formData}
-            currentStep={currentStep}
-          />
-        );
-      case STEPS.CERTIFICATION:
-        return (
-          <CertificationForm
+          <RequiredCenterForm
             onNext={handleNext}
             data={formData}
             currentStep={currentStep}
@@ -44,7 +33,7 @@ const SignupManager = () => {
         );
       case STEPS.OPTIONAL_INFO:
         return (
-          <OptionalInfoForm
+          <OptionalCenterForm
             onNext={handleNext}
             data={formData}
             currentStep={currentStep}
@@ -52,7 +41,7 @@ const SignupManager = () => {
         );
       case STEPS.PROFILE_SETUP:
         return (
-          <ProfileSetupForm
+          <CenterProfileForm
             onNext={handleNext}
             data={formData}
             currentStep={currentStep}
@@ -74,4 +63,4 @@ const SignupManager = () => {
   );
 };
 
-export default SignupManager;
+export default SignupCenter;

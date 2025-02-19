@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import Typography from "../../../../../components/common/Typography";
-import Input from "../../../../../components/common/Input";
-import Checkbox from "../../../../../components/common/Checkbox";
 import Button from "../../../../../components/common/Button";
-import styles from "../../SignupManager.module.css";
-import Dropdown from "../../../../../components/common/Dropdown";
+import styles from "../../SignupCenter.module.css";
 import ImageUpload from "../../../../../components/common/ImageUpload";
 import StepProgress from "../../../../../components/common/StepProgress";
 import { STEPS } from "../..";
 
-const ProfileSetupForm = ({ onNext, data = {}, currentStep }) => {
+const CenterProfileForm = ({ onNext, data = {}, currentStep }) => {
   const [profileImage, setProfileImage] = useState(null);
 
   const handleImageSelect = (imageUrl) => {
@@ -47,4 +44,4 @@ const ProfileSetupForm = ({ onNext, data = {}, currentStep }) => {
   );
 };
 
-export default ProfileSetupForm;
+export default CenterProfileForm;

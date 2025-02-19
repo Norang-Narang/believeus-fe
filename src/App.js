@@ -8,6 +8,7 @@ import { PATH } from "../src/constants/path";
 import Matching from "./pages/Matching";
 import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
+import SignupCenter from "./pages/signup/center";
 
 import Login from "./pages/login/index";
 import Signup from "./pages/signup";
@@ -76,6 +77,15 @@ export const routes = [
         layout: {
           showNav: false,
           showTopNav: false,
+        },
+      },
+      {
+        path: PATH.SIGNUP_CENTER,
+        element: <SignupCenter />,
+        layout: {
+          showNav: false,
+          showTopNav: true,
+          topNavProps: { variant: "only-icon" },
         },
       },
       {

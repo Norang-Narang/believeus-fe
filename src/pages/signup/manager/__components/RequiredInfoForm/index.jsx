@@ -5,7 +5,10 @@ import Checkbox from "../../../../../components/common/Checkbox";
 import Button from "../../../../../components/common/Button";
 import styles from "../../SignupManager.module.css";
 
-const RequiredInfoForm = ({ onNext, data = {} }) => {
+import StepProgress from "../../../../../components/common/StepProgress";
+import { STEPS } from "../..";
+
+const RequiredInfoForm = ({ onNext, data = {}, currentStep }) => {
   return (
     <div className={styles.container}>
       <Typography variant="h-b-24" className={styles.title}>
@@ -48,6 +51,10 @@ const RequiredInfoForm = ({ onNext, data = {} }) => {
         <Checkbox label="치매교육을 이수했어요" />
       </div>
       <div className={styles.buttonWrapper}>
+        <StepProgress
+          totalSteps={Object.keys(STEPS).length}
+          currentStep={currentStep}
+        />
         <Button size="large" variant="primary" fullWidth onClick={onNext}>
           다음
         </Button>
