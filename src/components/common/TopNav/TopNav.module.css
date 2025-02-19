@@ -2,6 +2,7 @@
   width: 100%;
   height: 56px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 var(--spacing-16);
   background: var(--color-white);
@@ -21,6 +22,11 @@
 
 .label {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 48px;
+  transform: none;
+}
+
+.rightIcon {
+  margin-left: auto;
+  color: var(--color-grayscale-900);
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
-import Mypage from "./pages/Mypage";
+import { BiSolidEdit } from "react-icons/bi";
 
 import { PATH } from "../src/constants/path";
 import Matching from "./pages/Matching";
@@ -10,9 +10,11 @@ import WorkCondition from "./pages/WorkCondition";
 import ManagerSignup from "./pages/signup/manager";
 import SignupCenter from "./pages/signup/center";
 
-import Login from "./pages/login/index";
+import Login from "./pages/login/Login";
 import Signup from "./pages/signup";
 import ProtectedRoute from "./components/common/ProtectedRoute/index";
+import Mypage from "./pages/mypage/Mypage";
+import Onboarding from "./pages/Onboarding";
 
 export const routes = [
   {
@@ -22,7 +24,7 @@ export const routes = [
     children: [
       {
         path: "", // 루트 경로
-        element: <div>루트</div>,
+        element: <Onboarding />,
         layout: {
           showNav: false,
           showTopNav: false,
@@ -51,7 +53,7 @@ export const routes = [
         layout: {
           showNav: true,
           showTopNav: true,
-          topNavProps: { variant: "only-text", label: "근무조건" },
+          topNavProps: { variant: "text-with-icon", label: "근무조건" },
         },
       },
       {
@@ -64,7 +66,7 @@ export const routes = [
         layout: {
           showNav: true,
           showTopNav: true,
-          topNavProps: { variant: "only-text", label: "매칭" },
+          topNavProps: { variant: "text-with-icon", label: "매칭 관리" },
         },
       },
       {
@@ -77,7 +79,22 @@ export const routes = [
         layout: {
           showNav: true,
           showTopNav: true,
-          topNavProps: { variant: "only-icon" },
+          topNavProps: {
+            variant: "text-with-icon",
+            label: "마이페이지",
+            rightIcons: [
+              <BiSolidEdit
+                size={24}
+                style={{
+                  color: "var(--color-grayscale-400)",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("openEditModal"));
+                }}
+              />,
+            ],
+          },
         },
       },
       {

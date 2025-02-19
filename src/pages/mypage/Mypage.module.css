@@ -1,0 +1,119 @@
+.container {
+  width: 100%;
+  padding: 0 var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  margin-top: var(--spacing-32);
+}
+
+.profileImage {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.defaultProfile {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-500) 0%,
+    var(--color-secondary-500) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userName {
+  color: var(--color-grayscale-900);
+}
+
+.divider {
+  width: 100vw;
+  height: 5px;
+  background-color: #f9f9fb;
+  margin: var(--spacing-16) -32px;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-20);
+  background: var(--color-grayscale-50);
+  border-radius: 8px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: row;
+  gap: 66px;
+}
+
+.label {
+  color: var(--color-grayscale-400);
+}
+
+.certWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 52px;
+}
+
+.careerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-grayscale-900);
+}
+
+.menuItem:hover {
+  background: var(--color-grayscale-50);
+}
+
+.icon {
+  color: var(--color-grayscale-400);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  min-width: 288px;
+  gap: var(--spacing-16);
+  margin: var(--spacing-48) 0;
+}
