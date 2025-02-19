@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+  padding: 0 var(--spacing-20);
+  box-sizing: border-box;
+  margin-top: 80px;
+}
+
+.title {
+  color: var(--color-primary-500);
+  text-align: center;
+}
+
+.inputWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.forgotIdPw {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  color: var(--color-grayscale-400);
+}
+
+.signupLink {
+  color: var(--color-primary-500);
+}
+
+.newUserSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-8);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-grayscale-400);
+  margin: 4rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-grayscale-200);
+  margin: 0 16px;
+}
+
+.lowerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  width: 100%;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+  margin-right: var(--spacing-8);
+  transform: translateY(4px);
+}
