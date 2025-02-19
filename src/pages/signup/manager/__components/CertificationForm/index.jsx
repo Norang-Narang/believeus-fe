@@ -24,11 +24,8 @@ const CertificationForm = ({ onNext, data = {}, currentStep }) => {
   };
 
   const handleNext = () => {
-    // 연도 기재 번호가 있으면 그것을 사용, 없으면 연도 미기재 번호 사용
-    const certificateNumber = formData.yearNumber || formData.noYearNumber;
-
     onNext({
-      certificateNumber: `${certificateNumber}-${formData.serialNumber}`,
+      serialNumber: formData.serialNumber,
     });
   };
 
