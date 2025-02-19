@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "../../../../../components/common/Typography";
 import Input from "../../../../../components/common/Input";
 import Checkbox from "../../../../../components/common/Checkbox";
@@ -9,6 +9,31 @@ import StepProgress from "../../../../../components/common/StepProgress";
 import { STEPS } from "../..";
 
 const OptionalInfoForm = ({ onNext, data = {}, currentStep }) => {
+  const [formData, setFormData] = useState({
+    experienceYears: "",
+    majorExperience: "",
+    introduction: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleDropdownSelect = (option) => {
+    setFormData((prev) => ({
+      ...prev,
+      experienceYears: option.value,
+    }));
+  };
+
+  const handleNext = () => {
+    onNext(formData);
+  };
+
   return (
     <div className={styles.container}>
       <Typography variant="h-b-24" className={styles.title}>
@@ -22,27 +47,20 @@ const OptionalInfoForm = ({ onNext, data = {}, currentStep }) => {
       </div>
       <Dropdown
         options={[
-          {
-            label: "0-1년",
-            value: "option1",
-          },
-          {
-            label: "2-3년",
-            value: "option2",
-          },
-          {
-            label: "4-5년",
-            value: "option3",
-          },
-          {
-            label: "6년 이상",
-            value: "option4",
-          },
+          { label: "0-1년", value: "0-1" },
+          { label: "2-3년", value: "2-3" },
+          { label: "4-5년", value: "4-5" },
+          { label: "6년 이상", value: "6+" },
         ]}
         placeholder="경력기간"
+        value={formData.experienceYears}
+        onSelect={handleDropdownSelect}
       />
       <div className={styles.inputWrapper}>
         <Input
+          name="majorExperience"
+          value={formData.majorExperience}
+          onChange={handleChange}
           size="Xlarge"
           type="text"
           variant="text-with-label"
@@ -51,6 +69,9 @@ const OptionalInfoForm = ({ onNext, data = {}, currentStep }) => {
           fullWidth
         />
         <Input
+          name="introduction"
+          value={formData.introduction}
+          onChange={handleChange}
           size="Xlarge"
           type="text"
           variant="text-with-label"
@@ -64,7 +85,7 @@ const OptionalInfoForm = ({ onNext, data = {}, currentStep }) => {
           totalSteps={Object.keys(STEPS).length}
           currentStep={currentStep}
         />
-        <Button size="large" variant="primary" fullWidth onClick={onNext}>
+        <Button size="large" variant="primary" fullWidth onClick={handleNext}>
           다음
         </Button>
       </div>

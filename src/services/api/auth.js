@@ -41,4 +41,17 @@ export const authAPI = {
       throw error;
     }
   },
+
+  // 요양보호사 정보 등록
+  registerCaregiver: async (userId, caregiverData) => {
+    try {
+      const response = await client.post("/register/caregiver", {
+        userId,
+        ...caregiverData,
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
